@@ -1,3 +1,11 @@
+/********************************
+ * author: 	Ben Miner
+ * class:	CIS 171 Java II
+ * date:	September 2020
+ * project:	BookList
+ * class:	BookEntityHelper
+ ********************************/
+
 package Controller;
 
 import java.util.List;
@@ -9,10 +17,14 @@ import javax.persistence.TypedQuery;
 
 import Model.BookEntity;
 public class BookEntityHelper {
+	/****************************
+	 * 	declare an entityManagerFactory
+	 ****************************/
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("BookList");
 	/****************************
 	 * 	searchByTitle
 	 * 	arguments: String title
+	 *  return:	List of BookEntity
 	 ****************************/
 	public List<BookEntity> searchByTitle(String tilte) {
 		EntityManager em = emfactory.createEntityManager(); 
@@ -24,8 +36,9 @@ public class BookEntityHelper {
 		return foundItems;
 	}
 	/****************************
-	 * 	searchByTitle
+	 * 	searchByLastName
 	 * 	arguments: String title
+	 * return:	List of BookEntity
 	 ****************************/
 	public List<BookEntity> searchByLastName(String lastName) {
 		EntityManager em = emfactory.createEntityManager(); 
@@ -104,6 +117,8 @@ public class BookEntityHelper {
 	}
 	/****************************
 	 * 	showAllBooks
+	 *  arguments: none
+	 *  return: List of BookEntity
 	 ****************************/
 	public List<BookEntity> showAllBooks() {
 		EntityManager em = emfactory.createEntityManager();

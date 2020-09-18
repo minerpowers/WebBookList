@@ -1,3 +1,11 @@
+/********************************
+ * author: 	Ben Miner
+ * class:	CIS 171 Java II
+ * date:	September 2020
+ * project:	BookList
+ * class:	BookEntity
+ ********************************/
+
 package Model;
 
 import javax.persistence.Column;
@@ -25,11 +33,13 @@ public class BookEntity {
 	private String firstName;
 	@Column(name="author_Lname")
 	private String lastName;
-	
+	/****************************
+	 * 	constructor no-arg
+	 ****************************/
 	public BookEntity() {
 	}
 	/****************************
-	 * 	constructor no-arg
+	 * 	constructor w/-arg
 	 ****************************/
 	public BookEntity(String title, String firstName, String lastName, String isbn10) {
 		this.title = title;
@@ -38,23 +48,22 @@ public class BookEntity {
 		this.isbn10 = isbn10;
 	}
 	/****************************
-	 * 	constructor w/-arg
+	 * setters & getters: title
 	 ****************************/
 	public String getTitle() {
 		return title;
 	}
-	/****************************
-	 * setters & getters: title
-	 ****************************/
+	
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getFirstName() {
-		return firstName;
 	}
 	/****************************
 	 * setters & getters: firstName
 	 ****************************/
+	public String getFirstName() {
+		return firstName;
+	}
+	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}

@@ -1,3 +1,11 @@
+/********************************
+ * author: 	Ben Miner
+ * class:	CIS 171 Java II
+ * date:	September 2020
+ * project:	BookList
+ * class:	runProgram
+ ********************************/
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -80,7 +88,7 @@ public class runProgram {
 				int number = bookList.indexOf(it)+1;
 				System.out.println("   "+number+": "+it.print());
 			}
-			System.out.print("\tSelect book to delete: ");
+			System.out.print("\tSelect number of the book to delete: ");
 			int deleteNum = in.nextInt();
 			in.nextLine();
 			beHelper.deleteBook(bookList.get(deleteNum-1));
@@ -99,7 +107,7 @@ public class runProgram {
 				int number = bookList.indexOf(it)+1;
 				System.out.println("   "+number+": "+it.print());
 			}
-			System.out.print("\tSelect book to update: ");
+			System.out.print("\tSelect number of the book to update: ");
 			int updateNum = in.nextInt();
 			in.nextLine();
 			BookEntity toEdit = beHelper.findIsbn(bookList.get(updateNum-1).getIsbn10());
@@ -145,7 +153,7 @@ public class runProgram {
 	 ****************************/
 	private static List<BookEntity> selectBy(){
 		System.out.println("\tHow would you like to search?");
-		System.out.println("\t  1 - Search by last name");
+		System.out.println("\t  1 - Search by author's last name");
 		System.out.println("\t  2 - Search by title");
 		System.out.print("\tEnter search selection:  ");
 		int searchBy = in.nextInt();
