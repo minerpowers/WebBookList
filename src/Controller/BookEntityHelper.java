@@ -37,7 +37,7 @@ public class BookEntityHelper {
 	}
 	/****************************
 	 * 	searchByLastName
-	 * 	arguments: String title
+	 * 	arguments: String lastName
 	 * return:	List of BookEntity
 	 ****************************/
 	public List<BookEntity> searchByLastName(String lastName) {
