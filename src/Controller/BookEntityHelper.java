@@ -26,6 +26,18 @@ public class BookEntityHelper {
 	 * 	arguments: String title
 	 *  return:	List of BookEntity
 	 ****************************/
+	public BookEntity searchById(int id) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		BookEntity found = em.find(BookEntity.class, id);
+		em.close();
+		return found;
+	}
+	/****************************
+	 * 	searchByTitle
+	 * 	arguments: String title
+	 *  return:	List of BookEntity
+	 ****************************/
 	public List<BookEntity> searchByTitle(String tilte) {
 		EntityManager em = emfactory.createEntityManager(); 
 		em.getTransaction().begin();

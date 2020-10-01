@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		body{
+			box-sizing : border-box
+		}
+		.formContainer {
+			margin: auto;
+			padding : 15px;
+			border : black thin solid;
+			width : 50%;
+			background : lightgray;
+		}
+		h4 {
+			margin-top: 5px;
+			margin-bottom : 5px;
+		}
+		label {
+			display : inline-block;
+			width : 100px;
+		}
+		input {
+			display : inline-block;
+			width : 250px;
+		}
+		button {
+			margin-top : 10px;
+			margin-bottom : 10px;
+			width : 75px;
+		}
+		a {
+			padding :2.5px;
+			border : black thin solid;
+			background : white;
+			margin-left : auto;
+			margin-right: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="formContainer"><!--container for form-->
+		<form action="addBookServlet" method="post">
+			<h4>Enter a new book!</h4>
+			<label>Title:</label>
+			<input type="text" name="title"><br>
+			<h4>Author:</h4>
+			<label>First Name:</label>
+			<input type="text" name="firstName"><br>
+			<label>Last Name:</label>
+			<input type="text" name="lastName"><br>
+			<label>10 Digit ISBN:</label>
+			<input type="text" name="isbn10"><br>
+			<button>Submit</button>
+		</form>
+		<div class="link">
+			<a href="viewBookListServlet">View my book list</a>
+		</div>
+	</div>
+	
+</body>
+</html>

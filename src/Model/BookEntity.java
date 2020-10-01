@@ -47,6 +47,9 @@ public class BookEntity {
 		this.lastName = lastName;
 		this.isbn10 = isbn10;
 	}
+	public int getId() {
+		return id;
+	}
 	/****************************
 	 * setters & getters: title
 	 ****************************/
