@@ -43,7 +43,7 @@
 			<th>Title:</th>
 			<th>Author:</th>
 			<th></th>
-			<th>ISBM:</th>
+			<th>ISBN:</th>
 		</tr>
 		<c:forEach items="${requestScope.allBooks}" var="currentitem">
 		<tr>
