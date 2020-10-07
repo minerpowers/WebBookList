@@ -16,7 +16,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import Model.BookEntity;
-public class BookEntityHelper {
+public class HelperBookEntity {
 	/****************************
 	 * 	declare an entityManagerFactory
 	 ****************************/
