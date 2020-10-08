@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import Model.BookEntity;
 
 /**
- * Servlet implementation class EditBookServlet
+ * Servlet implementation class AddBookServlet
  */
-@WebServlet("/editBookServlet")
-public class EditBookServlet extends HttpServlet {
+@WebServlet("/addBookServlet")
+public class ServletAddBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditBookServlet() {
+    public ServletAddBook() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,20 +29,18 @@ public class EditBookServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		BookEntityHelper dao = new BookEntityHelper();
 		String title = request.getParameter("title");
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String isbn10 = request.getParameter("isbn10");
-		Integer tempId = Integer.parseInt(request.getParameter("id"));
-		BookEntity bookToEdit = dao.searchById(tempId);
-		bookToEdit.setTitle(title);
-		bookToEdit.setFirstName(firstName);
-		bookToEdit.setLastName(lastName);
-		bookToEdit.setIsbn10(isbn10);
-		dao.updateBook(bookToEdit);
-		getServletContext().getRequestDispatcher("/viewBookListServlet").forward(request, response);
+		BookEntity book = new BookEntity(title, firstName, lastName, isbn10);
+		HelperBookEntity dao = new HelperBookEntity();
+		// verify ISBN10 does not already  exist then add to data base
+		if (!dao.checkIsbn(book.getIsbn10())) {
+			dao.insertBook(book);
+		}
 		
+		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}
 
 }

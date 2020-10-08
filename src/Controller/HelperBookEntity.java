@@ -16,7 +16,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import Model.BookEntity;
-public class BookEntityHelper {
+public class HelperBookEntity {
 	/****************************
 	 * 	declare an entityManagerFactory
 	 ****************************/
@@ -89,6 +89,7 @@ public class BookEntityHelper {
 		TypedQuery<BookEntity> query = em.createQuery("select b from BookEntity b where b.isbn10 = :selectedISBN", BookEntity.class); 
 		query.setParameter("selectedISBN", isbn);
 		BookEntity book = query.getSingleResult();
+		em.close();
 		return book;
 	}
 	/****************************
@@ -136,6 +137,7 @@ public class BookEntityHelper {
 		EntityManager em = emfactory.createEntityManager();
 		TypedQuery<BookEntity> query = em.createQuery("SELECT i FROM BookEntity i", BookEntity.class);
 		List<BookEntity> allBooks = query.getResultList();
+		em.close();
 		return allBooks;
 	}
 	/****************************
