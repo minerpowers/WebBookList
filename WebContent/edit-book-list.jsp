@@ -1,15 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- index.html
-		author: 	Ben Miner
- 		course:		CIS 171 Java II
- 		date:		October 2020
- 		project:	WebBookLists
- 		Notes:		Starting point for project
-	 -->
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>Edit a Book List</title>
 	<style>
 		body{
 			box-sizing : border-box
@@ -59,26 +55,24 @@
 	</style>
 </head>
 <body>
-	<div class="formContainer"><!--container for form-->
-		<form action="addBookServlet" method="post">
-			<h4>Enter a new book!</h4>
-			<label>Title:</label>
-			<input type="text" name="title"><br>
-			<h4>Author:</h4>
-			<label>First Name:</label>
-			<input type="text" name="firstName"><br>
-			<label>Last Name:</label>
-			<input type="text" name="lastName"><br>
-			<label>10 Digit ISBN:</label>
-			<input type="text" name="isbn10"><br>
-			<button>Submit</button>
+	<div class="formContainer">
+		<form action="servletEditBookList" method="post">
+			<input type="hidden" name="id" value="${listToEdit.id}">
+			<label>List Name: </label><input type="text" name="listName" value="${listToEdit.listName}">
+			<label>Reader Name: </label><input type="text" name="bookReader" value="${listToEdit.bookReader.name}"><br>
+			<label>Available Books:</label><br>
+			<select name="allBooksToAdd" size="8" multiple>
+				<c:forEach items="${requestScope.allBooks}" var="currentBook">
+					<option value="${currentBook.id}">
+						${currentBook.title} | ${currentBook.firstName} ${currentBook.lastName}
+					</option>
+				</c:forEach>
+			</select><br>
+			<button>Update Book List</button>
+			<div class="link">
+				<a href="index.html">Add to All Books</a>
+			</div>
 		</form>
-		<div class="link">
-			<a href="viewBookListServlet">View my book list</a>
-			<a href="servletViewAllBookLists">View all Book Lists</a>
-			<a href="servletAddtoBookList">Create a New List</a>
-		</div>
 	</div>
-	
 </body>
 </html>

@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ViewBookListServlet
+ * Servlet implementation class ServletViewAllBookLists
  */
-@WebServlet("/viewBookListServlet")
-public class ServletViewBookList extends HttpServlet {
+@WebServlet("/servletViewAllBookLists")
+public class ServletViewAllBookLists extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletViewBookList() {
+    public ServletViewAllBookLists() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,13 +27,12 @@ public class ServletViewBookList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HelperBookEntity dao = new HelperBookEntity();
-		request.setAttribute("allBooks", dao.showAllBooks());
-		String path = "/all-books.jsp";
-		if(dao.showAllBooks().isEmpty()) {
-			path = "/index.html";
+		HelperBookList hbl = new HelperBookList();
+		request.setAttribute("allBookLists", hbl.getAllBookLists());
+		if(hbl.getAllBookLists().isEmpty()) {
+			request.setAttribute("allBookLists", " ");
 		}
-		getServletContext().getRequestDispatcher(path).forward(request, response);
+		getServletContext().getRequestDispatcher("/book-list-by-reader.jsp").forward(request, response);
 	}
 
 	/**

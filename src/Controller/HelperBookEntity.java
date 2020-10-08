@@ -89,6 +89,7 @@ public class HelperBookEntity {
 		TypedQuery<BookEntity> query = em.createQuery("select b from BookEntity b where b.isbn10 = :selectedISBN", BookEntity.class); 
 		query.setParameter("selectedISBN", isbn);
 		BookEntity book = query.getSingleResult();
+		em.close();
 		return book;
 	}
 	/****************************
@@ -136,6 +137,7 @@ public class HelperBookEntity {
 		EntityManager em = emfactory.createEntityManager();
 		TypedQuery<BookEntity> query = em.createQuery("SELECT i FROM BookEntity i", BookEntity.class);
 		List<BookEntity> allBooks = query.getResultList();
+		em.close();
 		return allBooks;
 	}
 	/****************************

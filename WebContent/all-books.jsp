@@ -28,9 +28,15 @@
 			padding-right: 5px
 		}
 		button {
-			margin-top : 10px;
-			margin-bottom : 10px;
-			width : 75px;
+			width: 110px;
+			font : 12px Arial;
+  			text-decoration: none;
+ 			background-color: #FFFFFF;
+  			color: #333333;
+  			margin-right: 20px;
+  			padding: 2px 6px 2px 6px;
+  			border: thin solid #A0A3A3;
+  			border-radius: 5px;
 		}
 	</style>
 </head>

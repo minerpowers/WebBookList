@@ -8,16 +8,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ViewBookListServlet
+ * Servlet implementation class ServletAddtoBookList
+ * author: 	Ben Miner
+ * course:	CIS 171 Java II
+ * date:	October 2020
+ * project:	WebBookLists
+ * file:	ServletAddtoBookList
+ * objective:
+ * 		create a list of books using HelperBookEntity then setAttrribute "allBooks"
+ * 		dispatch to new-book-list.jsp
  */
-@WebServlet("/viewBookListServlet")
-public class ServletViewBookList extends HttpServlet {
+@WebServlet("/servletAddtoBookList")
+public class ServletAddtoBookList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletViewBookList() {
+    public ServletAddtoBookList() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,13 +35,12 @@ public class ServletViewBookList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HelperBookEntity dao = new HelperBookEntity();
-		request.setAttribute("allBooks", dao.showAllBooks());
-		String path = "/all-books.jsp";
-		if(dao.showAllBooks().isEmpty()) {
-			path = "/index.html";
+		HelperBookEntity hbe = new HelperBookEntity();
+		request.setAttribute("allBooks", hbe.showAllBooks());
+		if(hbe.showAllBooks().isEmpty()) {
+			request.setAttribute("allBooks", "");
 		}
-		getServletContext().getRequestDispatcher(path).forward(request, response);
+		getServletContext().getRequestDispatcher("/new-book-list.jsp").forward(request, response);
 	}
 
 	/**
