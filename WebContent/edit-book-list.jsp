@@ -58,9 +58,9 @@
 	<div class="formContainer">
 		<form action="servletEditBookList" method="post">
 			<input type="hidden" name="id" value="${listToEdit.id}">
-			<label>List Name: </label><input type="text" name="listName" value="${listToEdit.listName}">
+			<label>List Name: </label><input type="text" name="listName" value="${listToEdit.listName}"><br>
 			<label>Reader Name: </label><input type="text" name="bookReader" value="${listToEdit.bookReader.name}"><br>
-			<label>Available Books:</label><br>
+			<label>Available Books:</label>
 			<select name="allBooksToAdd" size="8" multiple>
 				<c:forEach items="${requestScope.allBooks}" var="currentBook">
 					<option value="${currentBook.id}">
