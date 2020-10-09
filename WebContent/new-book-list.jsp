@@ -62,8 +62,8 @@
 <body>
 	<div class="formContainer">
 		<form action="servletCreateNewList" Method="post">
-			<label>List Name:</label><input type="text" name="listName">
-			<label>Reader Name:</label><input type="text" name="bookReader">
+			<label>List Name:</label><input type="text" name="listName"><br>
+			<label>Reader Name:</label><input type="text" name="bookReader"><br>
 			<label>Available Books</label>
 			<select name="allBooksToAdd" size="8" multiple>
 				<c:forEach items="${requestScope.allBooks}" var="currentBook">

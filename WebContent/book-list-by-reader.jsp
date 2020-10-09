@@ -73,7 +73,6 @@
 			</div>
 		</form>
 		<div class="link">
-			<a href="servletAddtoBookList">Create a New List</a>
 			<a href="index.html">Add to All Books</a>
 		</div>
 	</div>
